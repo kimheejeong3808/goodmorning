@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>{{ article.title }}</h1>
+    <p>{{ article.category.category_name }}</p>
+    <p>{{ article.content }}</p>
+    {# urls.py의 path 네임 #}
+    <a href="{% url 'category' %}">목록으로</a>
+</body>
+</html>

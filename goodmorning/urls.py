@@ -15,12 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from . import views
-
+from blog import views
+# <> 안에 있는 건 int형, str형으로 받아서 넘길 것을 명시한 것
+# detail_view 라는 함수가 PK라는 변수를 받아서 실행 / article_view라는 함수가 NAME이라는 변수를 받아서 실행
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('test/', views.base_response,name='first_test'),
-    path('first/', views.first_view,name='first_view'),
-    path('blog/', include('blog.urls'))
-
+    path('', views.category_view, name='category'),
+    path('new', views.new_view, name='new'),
+    path('detail/<int:pk>', views.detail_view, name='detail'),
+    path('<str:name>', views.article_view, name='article'),
 ]

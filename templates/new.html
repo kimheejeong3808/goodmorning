@@ -1,30 +1,23 @@
-{% block title %}
-    글작성
-{% endblock %}
-{% block content %}
-    <div class="container">
-        <div class="wrap">
-            <h2 class="title-center"> 글작성 </h2>
-            <form class="form-area">
-                <div class="form-group mt-2 mb-2">
-                    <label for="username">글제목</label>
-                    <input type="text" class="form-control" id="username" name="username">
-                </div>
-                <div class="form-group mt-2 mb-2">
-                    <label for="username">글카테고리</label>
-                    <input type="text" class="form-control" id="username" name="username">
-                </div>
-                <div class="form-group mt-2 mb-2">
-                    <label for="bio">글내용</label>
-                    <input type="text" class="form-control" id="bio" name="bio">
-                </div>
-                <hr>
-                <div style="float: right">
-                    <button type="submit" class="btn btn-primary">게시</button>
-                    <a href="/sign-in" class="btn btn-secondary">로그인 페이지로</a>
-                </div>
-            </form>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST">
+        {# cross site request forgery -> 해킹 공격의 일종, 요청을 만들어서 실제 요청인것 마냥 보내는 것 #}
+        {% csrf_token %}
+        <input name = "title">
+        <select name = "category">
+            {% for category in categories %}
+                    {#value는 요청을 보낼때 넘어가는 값 / 오른쪽 name은 이용자에게 보여주기 위한 것일 뿐#}
+                <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+            {% endfor %}
+        </select>
+        <input name="content">
+        <button type="submit">글쓰기</button>
+    </form>
 
-        </div>
-    </div>
-{% endblock %}
+</body>
+</html>

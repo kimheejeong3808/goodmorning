@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% for name, count in infos.items %}
+        <a href="{% url 'article' category_name %}">{{ name }}{{ count }}</a>
+    {% endfor %}
+    <a href=""{% url 'new' %}>글쓰기</a>
+
+</body>
+</html>
