@@ -17,11 +17,14 @@ from django.contrib import admin
 from django.urls import path, include
 from blog import views
 # <> 안에 있는 건 int형, str형으로 받아서 넘길 것을 명시한 것
-# detail_view 라는 함수가 PK라는 변수를 받아서 실행 / article_view라는 함수가 NAME이라는 변수를 받아서 실행
+# detail_view 라는 함수가 pk라는 변수를 받아서 실행
+# article_view라는 함수가 name이라는 변수를 받아서 실행
+# 이렇게 변수들을 받아 활용하면 똑같은 url이라도 다른 내용을 보여줄 수 있음
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.category_view, name='category'),
     path('new', views.new_view, name='new'),
+    path('', views.category_view, name='category'),
     path('detail/<int:pk>', views.detail_view, name='detail'),
     path('<str:name>', views.article_view, name='article'),
 ]

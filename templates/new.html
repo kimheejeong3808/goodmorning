@@ -12,7 +12,7 @@
         <select name = "category">
             {% for category in categories %}
                     {#value는 요청을 보낼때 넘어가는 값 / 오른쪽 name은 이용자에게 보여주기 위한 것일 뿐#}
-                <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                <option value="{{ category.name }}">{{ category.name }}</option>
             {% endfor %}
         </select>
         <input name="content">

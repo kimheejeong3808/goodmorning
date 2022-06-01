@@ -6,9 +6,10 @@
 </head>
 <body>
     <h1>{{ article.title }}</h1>
-    <p>{{ article.category.category_name }}</p>
+    <p>{{ article.category.name }}</p>
     <p>{{ article.content }}</p>
-    {# urls.py의 path 네임 #}
+    {#  category는 오브젝트 그 자체이기 때문에 원하는 name을 명시해야 가져올수 있음#}
+    {# urls.py의 path 에서 정한 name을 여기에서 쓸 수 있음!#}
     <a href="{% url 'category' %}">목록으로</a>
 </body>
 </html>
